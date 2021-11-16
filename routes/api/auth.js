@@ -18,7 +18,6 @@ router.get('/current', controllerWrapper(authenticate), controllerWrapper(authCt
 
 router.patch('/subscription', controllerWrapper(authenticate), controllerWrapper(authCtrl.subscription))
 
-// router.patch('/avatars/:contactId',uploadImg.single('img'), controllerWrapper(authCtrl.updImg))
 router.patch('/avatars', uploadImg.single('img'), controllerWrapper(authenticate), controllerWrapper(authCtrl.updImg))
 
 module.exports = router
