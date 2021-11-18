@@ -1,4 +1,4 @@
-const fs = require('fs')
+const fs = require('fs/promises')
 const path = require('path')
 const Jimp = require('jimp')
 
@@ -15,7 +15,7 @@ const updImg = async (req, res) => {
     const img = await Jimp.read(tmpPath)
     await img.resize(250, 250).write(tmpPath)
 
-    await fs.rename(tmpPath, updPath, () => {})
+    await fs.rename(tmpPath, updPath)
 
     const avatarUrl = `/avatars/${id}/${originalname}`
 
