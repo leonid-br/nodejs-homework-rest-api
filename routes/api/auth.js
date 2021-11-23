@@ -12,9 +12,13 @@ router.post('/signup', validUser, controllerWrapper(authCtrl.signup))
 
 router.post('/login', validUser, controllerWrapper(authCtrl.login))
 
+router.post('/verify', controllerWrapper(authCtrl.verify))
+
 router.get('/logout', controllerWrapper(authenticate), controllerWrapper(authCtrl.logout))
 
 router.get('/current', controllerWrapper(authenticate), controllerWrapper(authCtrl.current))
+
+router.get('/verify/:verifyToken', controllerWrapper(authCtrl.verifyToken))
 
 router.patch('/subscription', controllerWrapper(authenticate), controllerWrapper(authCtrl.subscription))
 
